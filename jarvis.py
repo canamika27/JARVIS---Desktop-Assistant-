@@ -11,13 +11,9 @@ def talkToMe(audio):
     "speaks audio passed as argument"
 
     print(audio)
-    for line in audio.splitlines():
-        os.system("say " + audio)
-
-    #  use the system's inbuilt say command instead of mpg123
-    #  text_to_speech = gTTS(text=audio, lang='en')
-    #  text_to_speech.save('audio.mp3')
-    #  os.system('mpg123 audio.mp3')
+      text_to_speech = gTTS(text=audio, lang='en')
+      text_to_speech.save('audio.mp3')
+      os.system('mpg123 audio.mp3')
 
 
 def myCommand():
@@ -102,7 +98,7 @@ def assistant(command):
         talkToMe('Who is the recipient?')
         recipient = myCommand()
 
-        if 'John' in recipient:
+        if 'Anamika' in recipient:
             talkToMe('What should I say?')
             content = myCommand()
 
@@ -119,7 +115,7 @@ def assistant(command):
             mail.login('username', 'password')
 
             #send message
-            mail.sendmail('John Fisher', 'JARVIS2.0@protonmail.com', content)
+            mail.sendmail('Anamika Chatterjee', 'canamika27@gmail.com', content)
 
             #end mail connection
             mail.close()
